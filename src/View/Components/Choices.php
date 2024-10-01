@@ -101,7 +101,7 @@ class Choices extends Component
                             isDisabled: {{ json_encode($isDisabled()) }},
                             isRequired: {{ json_encode($isRequired()) }},
                             minChars: {{ $minChars }},
-
+                            
                             init() {
                                 // Fix weird issue when navigating back
                                 document.addEventListener('livewire:navigating', () => {
@@ -259,7 +259,7 @@ class Choices extends Component
                                              @if($selection)
                                                 <span x-html="document.getElementById('selection-{{ $uuid . '-\' + option.'. $optionValue }}).innerHTML"></span>
                                              @else
-                                                <span x-text="option.{{ $optionLabel }}"></span>
+                                                <span x-text="option?.{{ $optionLabel }}"></span>
                                              @endif
 
                                             <x-mary-icon @click="toggle(option.{{ $optionValue }})" x-show="!isReadonly && !isDisabled && !isSingle" name="o-x-mark" class="text-gray-500 hover:text-red-500" />
@@ -283,6 +283,13 @@ class Choices extends Component
                                     @keydown.debounce.{{ $debounce }}="search($el.value)"
                                 @endif
                              />
+
+                            <!-- PLACEHOLDER -->
+                            @if (!$compact && $attributes->has('placeholder'))
+                                <span @class(["absolute inset-0 mt-2.5 me-8 truncate text-base text-gray-400 pointer-events-none", $icon ? "ms-10" : "ms-4"]) x-show="isSelectionEmpty && !focused">
+                                    {{ $attributes->get('placeholder') }}
+                                </span>
+                            @endif
                         </div>
 
                         <!-- APPEND -->
