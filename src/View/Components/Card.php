@@ -41,7 +41,7 @@ class Card extends Component
                     {{
                         $attributes
                             ->merge(['wire:key' => $uuid ])
-                            ->class(['card bg-base-100 rounded-lg p-5', 'shadow-sm' => $shadow])
+                            ->class(['card card-bordered bg-base-100 rounded-lg p-5', 'shadow-sm' => $shadow])
                     }}
                 >
                     @if($figure)

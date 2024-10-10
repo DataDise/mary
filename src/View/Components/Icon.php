@@ -43,7 +43,7 @@ class Icon extends Component
                             {{
                                 $attributes->class([
                                     'inline',
-                                    'w-5 h-5' => !Str::contains($attributes->get('class') ?? '', ['w-', 'h-'])
+                                    'w-6 h-6' => !Str::contains($attributes->get('class') ?? '', ['w-', 'h-'])
                                 ])
                              }}
                         />
