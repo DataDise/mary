@@ -47,7 +47,7 @@ class ListItem extends Component
                     @if(data_get($item, $avatar))
                         <div class="py-3">
                             <div class="avatar">
-                                <div class="w-11 rounded-full">
+                                <div class="w-11">
                                     <img src="{{ data_get($item, $avatar) }}" />
                                 </div>
                             </div>
